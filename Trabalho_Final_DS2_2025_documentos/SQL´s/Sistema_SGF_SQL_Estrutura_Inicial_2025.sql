@@ -24,3 +24,4 @@ CREATE TABLE Folha_de_Pagamento (
     descontos DECIMAL(10,2) DEFAULT 0.00,
     FOREIGN KEY (id_funcionario) REFERENCES Funcionarios(id_funcionario)
 );
+ALTER TABLE cargo ADD COLUMN nivel_acesso ENUM('admin', 'usuario') DEFAULT 'usuario';
