@@ -1,25 +1,40 @@
 <?php
-session_start();
-require_once 'conexao.php';
+include('conexao.php');
 
-$erro = '';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    $stmt = $pdo->prepare("SELECT * FROM Funcionarios WHERE email = :email");
-    $stmt->bindValue(':email', $email);
-    $stmt->execute();
-    $usuario = $stmt->fetch();
-
-    if ($usuario && password_verify($senha, $usuario['senha'])) {
-        $_SESSION['usuario'] = $usuario['nome'];
-        $_SESSION['id_funcionario'] = $usuario['id_funcionario'];
-        header("Location: painel.php");
-        exit;
+if(isset($_POST['email']) || isset($_POST['senha'])) {
+     
+    if(strlen($_POST['email']) == 0) {
+        echo "preencha seu email";
+    } elseif(strlen($_POST['senha']) == 0) {
+        echo "preencha sua senha";
     } else {
-        $erro = "Email ou senha incorretos!";
+
+        $email = $mysqli->real_escape_string($_POST['email']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code =  "SELECT * FROM funcionarios WHERE email = '$email' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if($quantidade == 1){
+            
+            $user = $sql_query->fetch_assoc();
+
+            if(!isset($_SESSION)){
+                session_start();
+            }
+
+            $_SESSION['id'] = $user['id_funcionario'];
+            $_SESSION['nome'] = $user['nome'];
+
+            header("location: painel.php");
+
+
+        } else {
+            echo "Falha ao logar! Email ou senha incorretos";
+        }
+
     }
 }
 ?>
@@ -29,12 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Login - GestorFlex</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
 <div class="form-box">
-    <img src="logo.svg" alt="Logo" class="logo">
-    <h2>GestorFlex</h2>
+    <img src="imagens\0c2861b4-c44b-4544-8c21-9b318a8bab1f.png" alt="Logo" class="logo">
     <form method="post">
         <label>Email:</label>
         <input type="email" name="email" required>
@@ -43,8 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="senha" required>
 
         <button type="submit">Entrar</button>
-        <p><a href="cadastro.php">Ainda não tem cadastro?<br>Cadastre-se aqui!</a></p>
-        <p style="color:red;"><?= $erro ?></p>
     </form>
 </div>
 </body>

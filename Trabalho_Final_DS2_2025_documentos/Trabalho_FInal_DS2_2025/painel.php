@@ -1,9 +1,7 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit;
-}
+
+include ('protect.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -11,17 +9,17 @@ if (!isset($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <title>Painel - GestorFlex</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="painel.css">
 </head>
-<body class="painel-bg">
+<body>
     <div class="painel-container">
-        <h1>Bem-vindo, <?= $_SESSION['usuario'] ?>!</h1>
+        <h1>Bem-vindo, <?= $_SESSION['nome'] ?>!</h1>
         <p>Selecione uma opção para continuar:</p>
         <div class="painel-botoes">
-            <a href="cadastro.php" class="btn">Cadastrar Funcionário</a>
-            <a href="folha_pagamento.php" class="btn">Folha de Pagamento</a>
-            <a href="cargos.php" class="btn">Gerenciar Cargos</a>
-            <a href="logout.php" class="btn logout">Sair</a>
+            <a href="cadastro.php" class="botao">Cadastrar Funcionário</a>
+            <a href="folha_pagamento.php" class="botao">Folha de Pagamento</a>
+            <a href="cargos.php" class="botao">Gerenciar Cargos</a>
+            <a href="logout.php" class="logout">Sair</a>
         </div>
     </div>
 </body>

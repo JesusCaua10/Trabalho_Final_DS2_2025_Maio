@@ -1,0 +1,45 @@
+body {
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+.painel-container {
+    max-width: 500px;
+    margin: 80px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.1);
+}
+.painel-container img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+.painel-container h2 {
+    margin-bottom: 20px;
+}
+.painel-container p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+.painel-container a.botao {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 8px;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.painel-container a.botao:hover {
+    background-color: #3b78c7;
+}
+.painel-container a.logout {
+    display: block;
+    margin-top: 30px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
