@@ -11,18 +11,11 @@ body {
     text-align: center;
     box-shadow: 0px 8px 24px rgba(0,0,0,0.1);
 }
-.painel-container img {
-    width: 60px;
-    margin-bottom: 15px;
-}
-.painel-container h2 {
-    margin-bottom: 20px;
-}
-.painel-container p {
+.p1 {
     font-size: 16px;
     margin-bottom: 30px;
 }
-.painel-container a.botao {
+.botao {
     display: inline-block;
     padding: 12px 20px;
     margin: 8px;
@@ -33,10 +26,10 @@ body {
     font-weight: bold;
     transition: background 0.3s;
 }
-.painel-container a.botao:hover {
+.botao:hover {
     background-color: #3b78c7;
 }
-.painel-container a.logout {
+.logout {
     display: block;
     margin-top: 30px;
     color: red;

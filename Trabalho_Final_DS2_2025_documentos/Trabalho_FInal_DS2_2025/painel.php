@@ -14,8 +14,8 @@ include ('protect.php');
 <body>
     <div class="painel-container">
         <h1>Bem-vindo, <?= $_SESSION['nome'] ?>!</h1>
-        <p>Selecione uma opção para continuar:</p>
-        <div class="painel-botoes">
+        <p class="p1">Selecione uma opção para continuar:</p>
+        <div>
             <a href="cadastro.php" class="botao">Cadastrar Funcionário</a>
             <a href="folha_pagamento.php" class="botao">Folha de Pagamento</a>
             <a href="cargos.php" class="botao">Gerenciar Cargos</a>

@@ -50,13 +50,13 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
 <div class="form-box">
     <img src="imagens\0c2861b4-c44b-4544-8c21-9b318a8bab1f.png" alt="Logo" class="logo">
     <form method="post">
-        <label>Email:</label>
-        <input type="email" name="email" required>
+        <label class="label">Email:</label>
+        <input type="email" name="email" class="input" required>
 
-        <label>Senha:</label>
-        <input type="password" name="senha" required>
+        <label class="label" >Senha:</label>
+        <input type="password" name="senha" class="input" required>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" class="button">Entrar</button>
     </form>
 </div>
 </body>

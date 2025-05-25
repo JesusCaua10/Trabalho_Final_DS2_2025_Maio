@@ -20,16 +20,11 @@ body {
     max-width: 400px;
     text-align: center;
 }
-.form-box .logo {
+.logo {
     width: 80px;
     margin-bottom: 15px;
 }
-.form-box h2 {
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #333;
-}
-.form-box label {
+.label {
     display: block;
     text-align: left;
     margin-bottom: 5px;
@@ -37,7 +32,7 @@ body {
     font-weight: bold;
     color: #444;
 }
-.form-box input {
+.input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -46,11 +41,11 @@ body {
     font-size: 14px;
     transition: border-color 0.3s ease;
 }
-.form-box input:focus {
+.input:focus {
     border-color: #4a90e2;
     outline: none;
 }
-.form-box button {
+.button {
     width: 100%;
     padding: 12px;
     background-color: #4a90e2;
@@ -62,6 +57,6 @@ body {
     transition: background 0.3s;
     margin-top: 20px;
 }
-.form-box button:hover {
+.button:hover {
     background-color: #3b78c7;
 }
