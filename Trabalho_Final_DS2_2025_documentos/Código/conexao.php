@@ -4,8 +4,13 @@ $dbname = 'sistema_SGF';
 $user = 'root';
 $pass = '';
 
-$mysqli = new mysqli($host, $user, $pass, $dbname);
+try {
 
-if ($mysqli->error) {
-    die("Não conseguiu conectar ao banco de dados: " . $mysqli->error);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+} catch (PDOException $e) {
+
+    die("Erro ao conectar ao banco de dados: " . $e->getMessage());
+    
 }

@@ -1,43 +1,41 @@
 <?php
 include('conexao.php');
 
-if(isset($_POST['email']) || isset($_POST['senha'])) {
-     
-    if(strlen($_POST['email']) == 0) {
-        echo "preencha seu email";
-    } elseif(strlen($_POST['senha']) == 0) {
-        echo "preencha sua senha";
+if (isset($_POST['email']) && isset($_POST['senha'])) {
+
+    if (strlen($_POST['email']) == 0) {
+        echo "Preencha seu email";
+    } elseif (strlen($_POST['senha']) == 0) {
+        echo "Preencha sua senha";
     } else {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
-        $email = $mysqli->real_escape_string($_POST['email']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
+        $stmt = $pdo->prepare("SELECT * FROM funcionarios WHERE email = :email AND senha = :senha LIMIT 1");
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':senha', $senha);
+        $stmt->execute();
 
-        $sql_code =  "SELECT * FROM funcionarios WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+        if ($stmt->rowCount() == 1) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $quantidade = $sql_query->num_rows;
-
-        if($quantidade == 1){
-            
-            $user = $sql_query->fetch_assoc();
-
-            if(!isset($_SESSION)){
+            if (!isset($_SESSION)) {
                 session_start();
             }
 
             $_SESSION['id'] = $user['id_funcionario'];
             $_SESSION['nome'] = $user['nome'];
 
-            header("location: painel.php");
-
+            header("Location: painel.php");
+            exit;
 
         } else {
             echo "Falha ao logar! Email ou senha incorretos";
         }
-
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
