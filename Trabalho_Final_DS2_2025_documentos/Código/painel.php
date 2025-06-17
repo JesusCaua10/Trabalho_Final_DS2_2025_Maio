@@ -1,5 +1,5 @@
 <?php
-
+include('conexao.php');
 include ('protect.php');
 
 ?>
@@ -16,9 +16,9 @@ include ('protect.php');
         <h1>Bem-vindo, <?= $_SESSION['nome'] ?>!</h1>
         <p class="p1">Selecione uma opção para continuar:</p>
         <div>
-            <a href="cadastro.php" class="botao">Cadastrar Funcionário</a>
+            <a href="Rfuncionarios.php" class="botao">Gerenciar Funcionários</a>
             <a href="folha_pagamento.php" class="botao">Folha de Pagamento</a>
-            <a href="cargos.php" class="botao">Gerenciar Cargos</a>
+            <a href="Rcargo.php" class="botao">Gerenciar Cargos</a>
             <a href="logout.php" class="logout">Sair</a>
         </div>
     </div>
