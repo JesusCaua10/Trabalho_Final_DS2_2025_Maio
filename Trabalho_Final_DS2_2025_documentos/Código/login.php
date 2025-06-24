@@ -1,12 +1,15 @@
 <?php
 include('conexao.php');
+session_start();
+
+$e = ""; 
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
 
     if (strlen($_POST['email']) == 0) {
-        echo "Preencha seu email";
+        $e = "Preencha seu email";
     } elseif (strlen($_POST['senha']) == 0) {
-        echo "Preencha sua senha";
+        $e = "Preencha sua senha";
     } else {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -18,25 +21,16 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
         if ($stmt->rowCount() == 1) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-
             $_SESSION['id'] = $user['id_funcionario'];
             $_SESSION['nome'] = $user['nome'];
-
             header("Location: painel.php");
             exit;
-
         } else {
-            echo "Falha ao logar! Email ou senha incorretos";
+            $e = "Falha ao logar! Email ou senha incorretos";
         }
     }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,15 +40,19 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 </head>
 <body>
 <div class="form-box">
-    <img src="imagens\0c2861b4-c44b-4544-8c21-9b318a8bab1f.png" alt="Logo" class="logo">
+    <img src="imagens/0c2861b4-c44b-4544-8c21-9b318a8bab1f.png" alt="Logo" class="logo">
     <form method="post">
         <label class="label">Email:</label>
         <input type="email" name="email" class="input" required>
 
-        <label class="label" >Senha:</label>
+        <label class="label">Senha:</label>
         <input type="password" name="senha" class="input" required>
 
         <button type="submit" class="button">Entrar</button>
+
+        <?php if (!empty($e)) { ?>
+            <div class="error-message"><?= htmlspecialchars($e) ?></div>
+        <?php } ?>
     </form>
 </div>
 </body>

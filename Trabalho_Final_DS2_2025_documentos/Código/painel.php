@@ -1,7 +1,6 @@
 <?php
+include('protect.php');
 include('conexao.php');
-include ('protect.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -12,15 +11,22 @@ include ('protect.php');
     <link rel="stylesheet" href="painel.css">
 </head>
 <body>
-    <div class="painel-container">
-        <h1>Bem-vindo, <?= $_SESSION['nome'] ?>!</h1>
-        <p class="p1">Selecione uma opção para continuar:</p>
-        <div>
-            <a href="Rfuncionarios.php" class="botao">Gerenciar Funcionários</a>
-            <a href="folha_pagamento.php" class="botao">Folha de Pagamento</a>
-            <a href="Rcargo.php" class="botao">Gerenciar Cargos</a>
-            <a href="logout.php" class="logout">Sair</a>
-        </div>
-    </div>
+
+<div class="sidebar">
+    <h2>GestorFlex</h2>
+    <ul>
+        <li><a href="painel.php">🏠 Painel</a></li>
+        <li><a href="Rfuncionarios.php">👥 Funcionários</a></li>
+        <li><a href="Rcargo.php">💼 Cargos</a></li>
+        <li><a href="folha_pagamento.php">📑 Folha de Pagamento</a></li>
+        <li><a href="logout.php">🚪 Sair</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Bem-vindo, <?= $_SESSION['nome'] ?>!</h1>
+    <p>Escolha uma opção no menu para gerenciar sua empresa.</p>
+</div>
+
 </body>
 </html>
