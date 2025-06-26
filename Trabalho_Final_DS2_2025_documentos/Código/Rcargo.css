@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+}
+
+.painel-container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.painel-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0077ff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th {
+    background-color: #0077ff;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.acao-editar {
+    background-color: #28a745;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.acao-editar:hover {
+    background-color: #218838;
+}
+
+.acao-excluir {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.acao-excluir:hover {
+    background-color: #c82333;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #005fcc;
+}
+
+.botao-cinza {
+    background-color: #6c757d;
+}
+
+.botao-cinza:hover {
+    background-color: #5a6268;
+}
+
+.botoes-container {
+    text-align: center;
+    margin-top: 20px;
+}

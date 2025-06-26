@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($stmt->execute()) {
             echo "Funcionário atualizado com sucesso!";
+            header("Location: Rfuncionarios.php");
+            exit();
         } else {
             echo "Erro ao atualizar funcionário.";
         }
@@ -39,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Ufuncionarios.css">
 </head>
 <body>
    <div>
@@ -71,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </select>
             <br>
             <button type="submit">Editar</button>
+            <a href="Rfuncionarios.php">Voltar</a>
         </form>
     </div>
 </body>

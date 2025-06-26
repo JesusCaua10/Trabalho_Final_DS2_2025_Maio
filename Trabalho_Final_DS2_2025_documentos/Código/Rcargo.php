@@ -8,7 +8,7 @@ include('protect.php');
 <head>
     <meta charset="UTF-8">
     <title>Gerenciar Cargos - GestorFlex</title>
-    <link rel="stylesheet" href="painel.css">
+    <link rel="stylesheet" href="Rcargo.css">
 </head>
 <body>
     <div class="painel-container">
@@ -30,17 +30,19 @@ include('protect.php');
                 echo "<td>" . htmlspecialchars($row['nome_cargo']) . "</td>";
                 echo "<td>R$ " . number_format($row['salario_base'], 2, ',', '.') . "</td>";
                 echo "<td>
-                        <a href='Ucargo.php?id=" . htmlspecialchars($row['id_cargo']) . "'>Editar</a> | 
-                        <a href='Dcargo.php?id=" . htmlspecialchars($row['id_cargo']) . "' onclick=\"return confirm('Tem certeza que deseja excluir este cargo?');\">Excluir</a>
-                      </td>";
+                        <a class='acao-editar' href='Ucargo.php?id=" . htmlspecialchars($row['id_cargo']) . "'>Editar</a> 
+                        <a class='acao-excluir' href='Dcargo.php?id=" . htmlspecialchars($row['id_cargo']) . "' onclick=\"return confirm('Tem certeza que deseja excluir este cargo?');\">Excluir</a>
+                    </td>";
                 echo "</tr>";
             }
             ?>
         </table>
 
         <br>
-        <a href="Form_Cargo.php" class="botao">Cadastrar Novo Cargo</a><br><br>
-        <a href="painel.php" class="botao">Voltar para o Painel</a>
+        <div class="botoes-container">
+            <a href="Form_Cargo.php" class="botao">Cadastrar Novo Cargo</a>
+            <a href="painel.php" class="botao botao-cinza">Voltar para o Painel</a>
+        </div>
     </div>
 </body>
 </html>

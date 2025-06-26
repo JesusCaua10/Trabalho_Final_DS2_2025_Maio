@@ -31,10 +31,11 @@ if (isset($_POST['nome']) && isset($_POST['salario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Ucargo.css">
 </head>
 <body>
-    <h1>Editar Cargos</h1>
     <div>
+        <h1>Editar Cargos</h1>
         <form action="" method="post">
             <label>Nome do Cargo:</label>
             <input type="text" name="nome" required>
@@ -43,8 +44,7 @@ if (isset($_POST['nome']) && isset($_POST['salario'])) {
             <input type="number" name="salario" required>
             <br>
             <button type="submit">Editar</button>
+            <a href="Rcargo.php">Voltar</a>
         </form>
-
-
 </body>
 </html>

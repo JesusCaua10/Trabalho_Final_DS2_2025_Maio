@@ -11,6 +11,8 @@ if (isset($_GET['id'])) {
 
     if ($stmt->rowCount() > 0) {
         echo "Funcionário excluído com sucesso!";
+        header("Location: Rfuncionarios.php");
+        exit();
     } else {
         echo "Erro ao excluir funcionário.";
     }

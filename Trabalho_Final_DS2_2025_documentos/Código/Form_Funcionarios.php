@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($stmt->execute()) {
             echo "Funcionário cadastrado com sucesso!";
+            header("Location: Rfuncionarios.php");
+            exit();
         } else {
             echo "Erro ao cadastrar funcionário.";
         }
